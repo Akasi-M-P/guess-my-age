@@ -50,3 +50,30 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   }
 });
+
+
+
+// Resetting the entire page for new game mode
+document.querySelector('.again').addEventListener('click', function () {
+  // set score to default value
+  score = 20;
+
+  // set secret_Age to default random secret age
+  secret_Age = Math.trunc(Math.random() * 50) + 1;
+
+  // set message to default message
+  document.querySelector('.message').textContent = 'Start guessing...';
+
+  document.querySelector('.score').textContent = score;
+
+  document.querySelector('.number').textContent = '?';
+
+  //set guess to default or empty value
+  document.querySelector('.guess').value = '';
+
+  // set background-color back to default color
+  document.querySelector('body').style.backgroundColor = '#222';
+
+  // set box size of guessed number to default box size
+  document.querySelector('.number').style.width = '15rem';
+});
