@@ -20,6 +20,10 @@ document.querySelector('.check').addEventListener('click', function () {
     // If the guess is correct, display a message and do not change the score
     document.querySelector('.message').textContent = 'You guessed it RIGHT!';
     score = score; // This line is unnecessary and does not change the score
+
+    document.querySelector('body').style.backgroundColor = 'green';
+
+    document.querySelector('.number').style.width = '30rem';
   } else if (guess > secret_Age) {
     // If the guess is higher than the secret age
     if (score > 1) {
