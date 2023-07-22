@@ -24,23 +24,12 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = 'green';
 
     document.querySelector('.number').style.width = '30rem';
-  } else if (guess > secret_Age) {
+  }  else if (guess !== secret_Age) {
     // If the guess is higher than the secret age
     if (score > 1) {
       // If the score is greater than 1, display a message and decrement the score
-      document.querySelector('.message').textContent = 'I am not that old';
-      score--;
-      document.querySelector('.score').textContent = score; // Update the displayed score
-    } else {
-      // If the score is 1 or less, display a message indicating that the user lost the game and set the score to 0
-      document.querySelector('.message').textContent = 'You lost the game';
-      document.querySelector('.score').textContent = 0;
-    }
-  } else if (guess < secret_Age) {
-    // If the guess is lower than the secret age
-    if (score > 1) {
-      // If the score is greater than 1, display a message and decrement the score
-      document.querySelector('.message').textContent = 'I look older';
+      document.querySelector('.message').textContent =
+        guess > secret_Age ? 'I am not that old' : 'I look older';
       score--;
       document.querySelector('.score').textContent = score; // Update the displayed score
     } else {
