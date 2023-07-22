@@ -4,16 +4,20 @@ let secret_Age = Math.trunc(Math.random() * 50) + 1;
 // Initialize the score to 20
 let score = 20;
 
+// Store the highest score obtained during the session
 let high_Score = 0;
 
+// Function to display a message on the screen
 const display_Message = message => {
   document.querySelector('.message').textContent = message;
 };
 
+// Function to display a number on the screen
 const display_Number = number => {
   document.querySelector('.number').textContent = number;
 };
 
+// Function to display the current score on the screen
 const display_Score = score => {
   document.querySelector('.score').textContent = score;
 };
@@ -35,12 +39,13 @@ document.querySelector('.check').addEventListener('click', function () {
     // Set the text content of the element with class 'number' to the secret age (for debugging purposes)
     display_Number(secret_Age);
 
+    // Change the background color to green to indicate a correct guess
     document.querySelector('body').style.backgroundColor = 'green';
 
+    // Increase the width of the guessed number box to accommodate a longer secret age number
     document.querySelector('.number').style.width = '30rem';
 
-    // high_Score = score;
-
+    // Update the high score if the current score is higher
     if (score > high_Score) {
       high_Score = score;
       document.querySelector('.highscore').textContent = high_Score;
@@ -64,27 +69,29 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 });
 
-// Resetting the entire page for new game mode
+// Resetting the entire page for a new game mode
 document.querySelector('.again').addEventListener('click', function () {
-  // set score to default value
+  // Set the score to the default value (20)
   score = 20;
 
-  // set secret_Age to default random secret age
+  // Generate a new random secret age between 1 and 100
   secret_Age = Math.trunc(Math.random() * 50) + 1;
 
-  // set message to default message
+  // Set the initial message for the user
   display_Message('Start guessing...');
 
+  // Display the score on the screen
   display_Score(score);
 
+  // Display a question mark in the number box to indicate an ongoing game
   display_Number('?');
 
-  //set guess to default or empty value
+  // Reset the input field to an empty value
   document.querySelector('.guess').value = '';
 
-  // set background-color back to default color
+  // Reset the background color to the default color
   document.querySelector('body').style.backgroundColor = '#222';
 
-  // set box size of guessed number to default box size
+  // Reset the guessed number box size to the default size
   document.querySelector('.number').style.width = '15rem';
 });
